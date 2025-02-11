@@ -142,14 +142,7 @@ let threadx = env.threadx; //进程数
 
 const main = async () => {
   accounts = accounts.split(/[\n ]/);
- //加入主账号签到后的容量
-    const [user1,pass1] = accounts.slice(0, 2);
-    const cloudClient1 = new CloudClient(user1, pass1);
-    await cloudClient1.login();
-    const { cloudCapacityInfo: fa0, familyCapacityInfo: fa1 } = await cloudClient1.getUserSizeInfo();
-    let userfacount=fa1.totalSize  /1024 /1024/1024
-logger.log(`$账户容量 ${userfacount} `);
-  
+   
   let userName0, password0, familyCapacitySize;
 
   for (let i = 0; i < accounts.length; i += 2) {
@@ -209,14 +202,16 @@ logger.log(`$账户容量 ${userfacount} `);
     await main();
   } finally {
     //加入主账号签到后的容量
-    const [userName, password] = accounts.slice(0, 2);
-    const cloudClient = new CloudClient(userName, password);
-    const UserSizeInfo = await cloudClient.getUserSizeInfo();
-    let userfacount=afterUserSizeInfo.familyCapacityInfo.totalSize  /1024 /1024
+    const [user1,pass1] = accounts.slice(0, 2);
+    const cloudClient1 = new CloudClient(user1, pass1);
+    await cloudClient1.login();
+    const { cloudCapacityInfo: fa0, familyCapacityInfo: fa1 } = await cloudClient1.getUserSizeInfo();
+    let userfacount=fa1.totalSize  /1024 /1024/1024
+
 
     const events = recording.replay();
     const content = events.map((e) => `${e.data.join("")}`).join("  \n");
-    content=content+"签到后家庭空间为：" +userfacount;
+    content=content+"签到后家庭空间为：" +userfacount +"G";
     push("天翼云盘自动签到任务", content);
     recording.erase();
   }
