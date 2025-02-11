@@ -153,7 +153,7 @@ const main = async () => {
 
     const userNameInfo = mask(userName, 3, 7);
 
-    if (userName=="19952238028"){
+    if (userName.startsWith("199")){
       threadx=1;
     }else{
       threadx=20;
