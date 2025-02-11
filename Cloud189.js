@@ -201,8 +201,15 @@ const main = async () => {
   try {
     await main();
   } finally {
+    //加入主账号签到后的容量
+    const [userName, password] = accounts.slice(0, 2);
+    const cloudClient = new CloudClient(userName, password);
+    const UserSizeInfo = await cloudClient.getUserSizeInfo();
+    let userfacount=afterUserSizeInfo.familyCapacityInfo.totalSize  /1024 /1024
+
     const events = recording.replay();
     const content = events.map((e) => `${e.data.join("")}`).join("  \n");
+    content=content+"签到后家庭空间为：" +userfacount;
     push("天翼云盘自动签到任务", content);
     recording.erase();
   }
