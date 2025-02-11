@@ -138,8 +138,10 @@ let WX_PUSHER_APP_TOKEN = env.WX_PUSHER_APP_TOKEN
 let telegramBotToken = env.TELEGRAM_BOT_TOKEN
 let telegramBotId = env.TELEGRAM_CHAT_ID
 
-let threadx = env.threadx; //进程数
+//let threadx = env.threadx; //进程数
+let threadx =20;
 
+  
 const main = async () => {
   accounts = accounts.split(/[\n ]/);
    
