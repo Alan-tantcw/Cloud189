@@ -139,7 +139,7 @@ let telegramBotToken = env.TELEGRAM_BOT_TOKEN
 let telegramBotId = env.TELEGRAM_CHAT_ID
 
 //let threadx = env.threadx; //进程数
-let threadx =15;
+let threadx =100;
 
   
 const main = async () => {
@@ -156,7 +156,7 @@ const main = async () => {
     if (userName.startsWith("199")){
       threadx=1;
     }else{
-      threadx=20;
+      threadx=120;
     }
 
 
