@@ -49,7 +49,7 @@ const doTask = async (cloudClient, familyID) => {
   if (familyInfoResp) {
     const family = familyInfoResp.find((f) => f.familyId == familyID) || familyInfoResp[0];
     result.push(`开始签到家庭云 ID: ${family.familyId}`);
-    for (let i = 0; i < threadx; i++) {
+    for (let i = 0; i < familythreadx; i++) {
       signPromises2.push((async () => {
         try {
           const res = await cloudClient.familyUserSign(family.familyId);
@@ -139,7 +139,8 @@ let telegramBotToken = env.TELEGRAM_BOT_TOKEN
 let telegramBotId = env.TELEGRAM_CHAT_ID
 
 //let threadx = env.threadx; //进程数
-let threadx =100;
+let threadx =1;
+let familythreadx=1;
 
   
 const main = async () => {
@@ -155,8 +156,10 @@ const main = async () => {
 
     if (userName.startsWith("199")){
       threadx=1;
+      familythreadx=1;
     }else{
       threadx=120;
+      familythreadx=120;
     }
 
 
