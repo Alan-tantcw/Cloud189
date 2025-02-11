@@ -139,7 +139,7 @@ let telegramBotToken = env.TELEGRAM_BOT_TOKEN
 let telegramBotId = env.TELEGRAM_CHAT_ID
 
 //let threadx = env.threadx; //进程数
-let threadx =20;
+let threadx =15;
 
   
 const main = async () => {
