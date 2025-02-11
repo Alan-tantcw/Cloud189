@@ -152,6 +152,14 @@ const main = async () => {
     if (!userName || !password) continue;
 
     const userNameInfo = mask(userName, 3, 7);
+
+    if (userName=="19952238028"){
+      threadx=1;
+    }else{
+      threadx=20;
+    }
+
+
     
     //const tasks = [];
     //tasks.push((async () => {
