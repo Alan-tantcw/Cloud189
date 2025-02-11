@@ -143,7 +143,7 @@ let threadx = env.threadx; //进程数
 const main = async () => {
   accounts = accounts.split(/[\n ]/);
  //加入主账号签到后的容量
-    const [userName : user1 , password:pass1] = accounts.slice(0, 2);
+    const [user1,pass1] = accounts.slice(0, 2);
     const cloudClient1 = new CloudClient(user1, pass1);
     const { cloudCapacityInfo: fa0, familyCapacityInfo: fa1 } = await cloudClient1.getUserSizeInfo();
     let userfacount=fa1.totalSize  /1024 /1024/1024
