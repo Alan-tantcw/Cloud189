@@ -145,8 +145,8 @@ const main = async () => {
  //加入主账号签到后的容量
     const [userName : user1 , password:pass1] = accounts.slice(0, 2);
     const cloudClient1 = new CloudClient(user1, pass1);
-    const UserSizeInfo1 = await cloudClient1.getUserSizeInfo();
-    let userfacount=afterUserSizeInfo1.familyCapacityInfo.totalSize  /1024 /1024
+    const { cloudCapacityInfo: fa0, familyCapacityInfo: fa1 } = await cloudClient1.getUserSizeInfo();
+    let userfacount=fa1.totalSize  /1024 /1024/1024
 logger.log(`$账户容量 ${userfacount} `);
   
   let userName0, password0, familyCapacitySize;
