@@ -220,11 +220,10 @@ const main = async () => {
     await cloudClient1.login();
     const { cloudCapacityInfo: fa0, familyCapacityInfo: fa1 } = await cloudClient1.getUserSizeInfo();
     let userfacount=fa1.totalSize  /1024 /1024/1024
-
+    logger.log(`签到后家庭空间为： ${userfacount} G`);
 
     const events = recording.replay();
     const content = events.map((e) => `${e.data.join("")}`).join("  \n");
-    content=content+"签到后家庭空间为：" +userfacount +"G";
     push("天翼云盘自动签到任务", content);
     recording.erase();
   }
