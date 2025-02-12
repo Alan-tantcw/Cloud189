@@ -159,7 +159,7 @@ const main = async () => {
       familythreadx=1;
     }else{
       threadx=10;
-      familythreadx=50;
+      familythreadx=30;
     }
 
 
