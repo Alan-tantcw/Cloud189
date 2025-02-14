@@ -154,7 +154,7 @@ const main = async () => {
 
     const userNameInfo = mask(userName, 3, 7);
 
-    if (userName.startsWith("199")){
+    if (userName.startsWith("19952238")){
       threadx=1;
       familythreadx=1;
     }else{
