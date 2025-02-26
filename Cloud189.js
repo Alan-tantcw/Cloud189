@@ -49,17 +49,22 @@ const doTask = async (cloudClient, familyID) => {
   if (familyInfoResp) {
     const family = familyInfoResp.find((f) => f.familyId == familyID) || familyInfoResp[0];
     result.push(`开始签到家庭云 ID: ${family.familyId}`);
+    // 使用 setTimeout 确保所有的异步调用在同一秒内启动
     for (let i = 0; i < familythreadx; i++) {
-      signPromises2.push((async () => {
-        try {
-          const res = await cloudClient.familyUserSign(family.familyId);
-          if (!res.signStatus) {
-            getSpace.push(` ${res.bonusSpace}`);
+      signPromises2.push(new Promise((resolve) => {
+        setTimeout(async () => {
+          try {
+            const res = await cloudClient.familyUserSign(family.familyId);
+            if (!res.signStatus) {
+              getSpace.push(` ${res.bonusSpace}`);
+            }
+            resolve(); // 完成该 Promise
+          } catch (e) {
+            getSpace.push(` 0`);
+            resolve(); // 也要确保 Promise 完成
           }
-        } catch (e) {
-          getSpace.push(` 0`);
-        }
-      })());
+        }, 1000); // 1 秒后开始执行
+      }));
     }
     await Promise.all(signPromises2);
     if(getSpace.length == 1) getSpace.push(" 0");
