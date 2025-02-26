@@ -28,7 +28,7 @@ jobs:
             
         - name: 操作
           run: |  
-              export tyys="${{ secrets.tyys1 }}"
+              export tyys="${{ secrets.tyys }}"
               export tyy_family_id="${{ secrets.tyy_family_id }}"
               export TELEGRAM_CHAT_ID="${{ secrets.TELEGRAM_CHAT_ID }}"
               export TELEGRAM_BOT_TOKEN="${{ secrets.TELEGRAM_BOT_TOKEN }}"
