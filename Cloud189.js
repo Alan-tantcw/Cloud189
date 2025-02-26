@@ -137,7 +137,7 @@ const push = (title, desp) => {
 }
 
 const env = require("./env");
-let accounts = env.tyys1
+let accounts = env.tyys
 
 let WX_PUSHER_UID = env.WX_PUSHER_UID
 let WX_PUSHER_APP_TOKEN = env.WX_PUSHER_APP_TOKEN
