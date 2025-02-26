@@ -1,5 +1,5 @@
 
-name: Action
+name: Action_syys1
 
 on:
   workflow_dispatch:
