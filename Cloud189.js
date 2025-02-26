@@ -4,8 +4,6 @@ const recording = require("log4js/lib/appenders/recording");
 const superagent = require("superagent");
 const { CloudClient } = require("cloud189-sdk");
 
-
-
 log4js.configure({
   appenders: {
     vcr: { type: "recording" },
