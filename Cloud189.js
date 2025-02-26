@@ -4,6 +4,21 @@ const recording = require("log4js/lib/appenders/recording");
 const superagent = require("superagent");
 const { CloudClient } = require("cloud189-sdk");
 
+
+const env = require("./env");
+let accounts = env.tyys1
+
+let WX_PUSHER_UID = env.WX_PUSHER_UID
+let WX_PUSHER_APP_TOKEN = env.WX_PUSHER_APP_TOKEN
+
+let telegramBotToken = env.TELEGRAM_BOT_TOKEN
+let telegramBotId = env.TELEGRAM_CHAT_ID
+
+//let threadx = env.threadx; //进程数
+let threadx =1;
+let familythreadx=1;
+
+
 log4js.configure({
   appenders: {
     vcr: { type: "recording" },
@@ -134,18 +149,7 @@ const push = (title, desp) => {
   pushTelegramBot(title,desp)
 }
 
-const env = require("./env");
-let accounts = env.tyys
 
-let WX_PUSHER_UID = env.WX_PUSHER_UID
-let WX_PUSHER_APP_TOKEN = env.WX_PUSHER_APP_TOKEN
-
-let telegramBotToken = env.TELEGRAM_BOT_TOKEN
-let telegramBotId = env.TELEGRAM_CHAT_ID
-
-//let threadx = env.threadx; //进程数
-let threadx =1;
-let familythreadx=1;
 
   
 const main = async () => {
