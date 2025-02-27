@@ -63,7 +63,7 @@ const doTask = async (cloudClient, familyID) => {
             getSpace.push(` 0`);
             resolve(); // 也要确保 Promise 完成
           }
-        }, 1000); // 1 秒后开始执行
+        }, 30); // 1 秒后开始执行
       }));
     }
     await Promise.all(signPromises2);
