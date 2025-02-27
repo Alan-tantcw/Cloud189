@@ -51,21 +51,19 @@ const doTask = async (cloudClient, familyID) => {
     result.push(`开始签到家庭云 ID: ${family.familyId}`);
     // 使用 setTimeout 确保所有的异步调用在同一秒内启动
     for (let i = 0; i < familythreadx; i++) {
-      signPromises2.push(new Promise((resolve) => {
-        setTimeout(async () => {
-          try {
-            const res = await cloudClient.familyUserSign(family.familyId);
-            if (!res.signStatus) {
-              getSpace.push(` ${res.bonusSpace}`);
-            }
-            resolve(); // 完成该 Promise
-          } catch (e) {
-            getSpace.push(` 0`);
-            resolve(); // 也要确保 Promise 完成
-          }
-        }, 30); // 1 秒后开始执行
-      }));
-    }
+  signPromises2.push(
+    cloudClient.familyUserSign(family.familyId)
+      .then((res) => {
+        if (!res.signStatus) {
+          getSpace.push(` ${res.bonusSpace}`);
+        }
+      })
+      .catch(() => {
+        getSpace.push(` 0`);
+      })
+  );
+}
+    
     await Promise.all(signPromises2);
     if(getSpace.length == 1) getSpace.push(" 0");
     result.push(getSpace.join(""));
