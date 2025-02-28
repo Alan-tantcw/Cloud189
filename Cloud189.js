@@ -50,7 +50,7 @@ const doTask = async (cloudClient, familyID) => {
     const family = familyInfoResp.find((f) => f.familyId == familyID) || familyInfoResp[0];
     result.push(`开始签到家庭云 ID: ${family.familyId}`);
     // 使用 setTimeout 确保所有的异步调用在同一秒内启动
-   for (let i = 0; i < family_threadx; i++) {
+   for (let i = 0; i < familythreadx; i++) {
       signPromises2.push((async () => {
         try {
           const res = await cloudClient.familyUserSign(family.familyId);
