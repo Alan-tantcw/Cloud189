@@ -165,7 +165,7 @@ const main = async () => {
       threadx=1;
       familythreadx=1;
     }else{
-      threadx=0;
+      threadx=1;
       familythreadx=30;
     }
 
