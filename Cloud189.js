@@ -165,7 +165,7 @@ const main = async () => {
       threadx=1;
       familythreadx=1;
     }else{
-      threadx=1;
+      threadx=0;
       familythreadx=30;
     }
 
@@ -199,7 +199,7 @@ const main = async () => {
         logger.error(e);
         if (e.code === "ETIMEDOUT") throw e;
       } finally {
-        await cloudClient.logout(); // 或者其他清理方法
+        cloudClient = null;
         logger.log("");
       }
     //})());
