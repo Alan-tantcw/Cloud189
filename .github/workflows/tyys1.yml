@@ -3,8 +3,8 @@ name: Action_syys1
 
 on:
   workflow_dispatch:
-#  schedule:
- #   - cron: 20 22 * * *
+  schedule:
+    - cron: 20 22 * * *
 
 
 jobs:
