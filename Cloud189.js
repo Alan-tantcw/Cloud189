@@ -199,6 +199,7 @@ const main = async () => {
         logger.error(e);
         if (e.code === "ETIMEDOUT") throw e;
       } finally {
+        await cloudClient.logout(); // 或者其他清理方法
         logger.log("");
       }
     //})());
