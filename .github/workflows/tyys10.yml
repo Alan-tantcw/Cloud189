@@ -4,7 +4,7 @@ name: Action_syys10
 on:
   workflow_dispatch:
   schedule:
-    - cron: 10 26 * * *
+    - cron: 10 22 * * *
 
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
               export TELEGRAM_CHAT_ID="${{ secrets.TELEGRAM_CHAT_ID }}"
               export TELEGRAM_BOT_TOKEN="${{ secrets.TELEGRAM_BOT_TOKEN }}"
               export WX_PUSHER_APP_TOKEN="${{ secrets.WX_PUSHER_APP_TOKEN }}"
-              export WX_PUSHER_UID="${{ secrets.WX_PUSHER_UID1 }}"
+              export WX_PUSHER_UID="${{ secrets.WX_PUSHER_UID }}"
               
               npm install >/dev/null 2>&1
               npm start
